@@ -4,21 +4,31 @@ const button = document.querySelector(".check-btn");
 function checkPalyndrome() {
   //Selects the input from the user and stores it to be checked
   const inputValue = document.querySelector("input").value;
-  //Divides the word and is pushed into an array
-  const wordArray = inputValue.split("");
-  console.log("This is the array", wordArray);
-  //Reverses the array
-  const reverseArray = wordArray.reverse();
-  console.log("This is the array backwards", reverseArray);
-  //Joins the reversed array to create the backwards word
-  const joinReversed = reverseArray.join("");
-  console.log("This is the word backwards:", joinReversed);
-  //Checks of the input is blank and if not prints a result
-  inputValue === ""
+  //Splits each word separated with a blank space and creates an array with them
+  const splitWords = inputValue.split(" ");
+  console.log(splitWords);
+  //Joins all words together
+  const joinWords = splitWords.join("");
+  console.log(joinWords);
+  //Separates the whole word letter by letter
+  const splitJoined = joinWords.split("");
+  console.log(splitJoined);
+  //Reverses the whole array
+  const reverseJoined = splitJoined.reverse();
+  console.log(reverseJoined);
+  //Joins the array into one word
+  const backwardsWord = reverseJoined.join("");
+  console.log(backwardsWord);
+
+  //Checks if the input is blank and if not displays the result
+  backwardsWord === ""
     ? (result.textContent = "Please enter a word")
-    : joinReversed === inputValue
+    : backwardsWord === inputValue
     ? (result.textContent = `The word "${inputValue}" is a palyndrome`)
     : (result.textContent = `The word "${inputValue}" is not a palyndrome`);
+
+  //Shorter way that does the same thing :)
+  /*const qlq = inputValue.split(" ").join("").split("").reverse().join("");*/
 }
 
 button.addEventListener("click", checkPalyndrome);
