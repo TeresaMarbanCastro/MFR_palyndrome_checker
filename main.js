@@ -2,8 +2,8 @@ const result = document.querySelector(".result-container");
 const button = document.querySelector(".check-btn");
 
 function checkPalyndrome() {
-  //Selects the input from the user and stores it to be checked
-  const inputValue = document.querySelector("input").value;
+  //Selects the input from the user, passess it to lower case and stores it to be checked
+  const inputValue = document.querySelector("input").value.toLowerCase();
   //Divides the word and is pushed into an array
   const wordArray = inputValue.split("");
   console.log("This is the array", wordArray);
@@ -17,8 +17,8 @@ function checkPalyndrome() {
   inputValue === ""
     ? (result.textContent = "Please enter a word")
     : joinReversed === inputValue
-    ? (result.textContent = `The word "${inputValue}" is a palyndrome`)
-    : (result.textContent = `The word "${inputValue}" is not a palyndrome`);
+      ? (result.textContent = `The word "${inputValue}" is a palyndrome`)
+      : (result.textContent = `The word "${inputValue}" is not a palyndrome`);
 }
 
 button.addEventListener("click", checkPalyndrome);
